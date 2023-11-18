@@ -4,6 +4,8 @@ require('dotenv').config()
 
 const _secrect_key = process.env.JWT_SECRET_KEY
 
+
+
 export const createToken = (email, name) => {
     return jwt.sign({ 
         email: email, 

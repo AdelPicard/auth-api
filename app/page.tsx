@@ -1,7 +1,11 @@
+import React from 'react'
 import cookie from "cookies-next"
 import { verifyToken } from "@/acess/jwtAcess"
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
+import { Avatar } from "@nextui-org/react";
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
+import UserAvatar from '@/components/avatarComp'
 
 
 export default async function Home() {
@@ -14,17 +18,22 @@ export default async function Home() {
     }
 
     verifyToken(userCookie)
-    console.log('Tudo certo!')
-    console.log(userCookie)
   }
 
   data()
 
+  const click = () => {
+    cookies().delete('authorization')
+    redirect('/login')
+  }
 
   return (
-    <div className='flex items-center justify-center text-white'>
-      Página segura - Perfil do usuário
-    </div>
+    <>
+      <div className='flex pt-10 items-center h-[100%] justify-center text-white'>
+        <UserAvatar />
+      </div>
+    </>
+
   )
 }
 

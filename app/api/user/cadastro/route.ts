@@ -11,7 +11,7 @@ export async function POST(req:any) {
   await connectDB()
   const userEmail = await User.find({email: email})
 
-  const _userToken = createToken(email, name)
+  const _jKhsYl = createToken(email, name)
   
   if (userEmail.length > 0) {
     return NextResponse.json({
@@ -20,7 +20,7 @@ export async function POST(req:any) {
   } else {
     await User.create({ name, email, password })
     return NextResponse.json({
-      _userToken
+      _jKhsYl
     }, {status: 201})
   }
 

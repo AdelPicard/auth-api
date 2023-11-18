@@ -5,10 +5,6 @@
 body,
 html,
 :root {
-  background-color: black;
+  background: url('../bg-img.png');
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
 }
