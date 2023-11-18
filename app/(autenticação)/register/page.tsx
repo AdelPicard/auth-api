@@ -42,6 +42,7 @@ const RegisterPage = () => {
             router.push('/')
         } catch (error:any) {
             setError(error.message)
+            console.log(error.message)
         }
     }
 
@@ -51,11 +52,11 @@ const RegisterPage = () => {
                 <form className="" onSubmit={handleForm}>
                     <AuthInput label="NOME" type="text" placeholder="digite um nome" required value={formData.name} onChange={(e:any) => { handleFormEdit(e, 'name') }}/>
                     <AuthInput label="E-MAIL" type="email" placeholder="digite um e-mail" required value={formData.email} onChange={(e:any) => { handleFormEdit(e, 'email') }}/>
-                    {error && <p className="text-[12px] text-[#d91111]">{error}</p>}
                     <AuthInput label="SENHA" type="password" placeholder="digite uma senha" required value={formData.password} onChange={(e:any) => { handleFormEdit(e, 'password') }}/>
                     <AuthButton>
                         Registrar
                     </AuthButton>
+                    {error && <p className="text-[12px] text-[#d91111]">{error}</p>}
                     <div className="flex pt-2 flex-wrap">
                         <p className="text-[12px] pr-[1px]">Já possui uma conta?</p><Link className="text-[12px] text-[#115ed9]" href="/login">Entre agora!</Link>
                     </div>
